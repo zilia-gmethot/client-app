@@ -1,0 +1,14 @@
+name: Dispatch E2E event
+on:
+  workflow_dispatch:
+jobs:
+  test:
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run E2E tests
+        run: |
+          curl -X POST -H "Accept: application/vnd.github.v3+json" \
+          -H "Authorization: token ${{ secrets.REPO_ACCESS_TOKEN }}" \
+          https://api.github.com/repos/zilia-gmethot/client-server-ci/dispatches \
+          -d '{"event_type":"e2e","client_payload":{"client_commit":"${{ github.sha }}","server_commit":"master"}}'
