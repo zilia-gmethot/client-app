@@ -72,9 +72,8 @@ export default defineConfig({
 
   /* Run your local dev server before starting the tests */
   webServer: {
-    command: 'npm run start',
-    url: 'http://127.0.0.1:4200',
-    reuseExistingServer: !process.env.CI,
-    timeout: 120_000
+    command: 'node serve-build.mjs',
+    url: 'http://localhost:4200',
+    reuseExistingServer: !process.env.CI
   },
 });
