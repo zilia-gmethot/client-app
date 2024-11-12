@@ -1,4 +1,4 @@
-name: Dispatch E2E event
+name: Trigger E2E tests run
 on:
   workflow_dispatch:
   push:
@@ -6,7 +6,7 @@ on:
   pull_request:
     branches: ["master"]
 jobs:
-  test:
+  trigger-e2e:
     timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
